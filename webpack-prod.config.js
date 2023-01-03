@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = (env) => {
     return {
-        entry: './src/main.js',
+        entry: './src/js/main.js',
         mode: 'production',
         output: {
             filename: 'main.js',
