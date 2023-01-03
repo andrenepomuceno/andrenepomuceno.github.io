@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack serve --config webpack-dev.config.js",
+    "prod": "webpack -c webpack-prod.config.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/andrenepomuceno/andrenepomuceno.github.io/issues"
   },
-  "homepage": "https://github.com/andrenepomuceno/andrenepomuceno.github.io#readme"
+  "homepage": "https://github.com/andrenepomuceno/andrenepomuceno.github.io#readme",
+  "dependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
 }
