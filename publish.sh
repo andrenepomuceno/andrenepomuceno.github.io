@@ -1,5 +1,9 @@
 #!/bin/bash
 
+set -e
+
+git push origin dev
+
 git checkout main
 
 git merge dev
