@@ -2,6 +2,7 @@
 
 set -e
 
+git pull origin main
 git push origin dev
 
 git checkout main
