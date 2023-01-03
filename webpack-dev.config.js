@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = (env) => {
     return {
-        entry: './src/main.js',
+        entry: './src/js/main.js',
         mode: 'development',
         devtool: 'eval-source-map',
         output: {
@@ -24,5 +24,33 @@ module.exports = (env) => {
                 'ENV': JSON.stringify(env)
             }),
         ],
+        module: {
+            rules: [
+                {
+                    test: /\.(scss)$/,
+                    use: [
+                        {
+                            loader: 'style-loader'
+                        },
+                        {
+                            loader: 'css-loader'
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                postcssOptions: {
+                                    plugins: () => [
+                                        require('autoprefixer')
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            loader: 'sass-loader'
+                        }
+                    ]
+                }
+            ]
+        }
     }
 };
