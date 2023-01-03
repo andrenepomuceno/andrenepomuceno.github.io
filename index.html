@@ -1,37 +1,72 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>André Nepomuceno</title>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8X67LC7LY9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-8X67LC7LY9');
-  </script>
 </head>
 
 <body>
-  <div class="container py-4 px-3 mx-auto">
+  <div class="container py-4 px-3 mx-auto"  >
     <h1>André Nepomuceno</h1>
-    <p><b>Welcome to my personal page!</b></p>
-    <p>Here you can check out my portfolio, CV and so on.</p>
-    <p><b>particle.js:</b> A 3D n-body particle physics simulator based on WebGL (aka miniverse simulator) <a
-        href="https://andrenepomuceno.github.io/particle.js/" target="_blank">particle.js</a> | <a
-        href="https://github.com/andrenepomuceno/particle.js" target="_blank">GitHub</a></p>
-    <p><b>ESP Garden:</b> An automatic garden irrigation and monitoring system based on ESP32 microcontroller <a
-        href="https://github.com/andrenepomuceno/esp_garden" target="_blank">GitHub</a></p>
-    <p><b>Resume:</b> <a href="https://drive.google.com/file/d/1t2wsReu8q0w_sugiXGDhktlJ096hZML1/view?usp=sharing"
-        target="_blank">PDF</a> | <a
-        href="https://docs.google.com/document/d/1IuWmcUzSy_nhkxQhbehwFq9WCi36_4RsOJz01w84eMs/edit?usp=sharing"
-        target="_blank">Google
-        Docs</a></p>
-    <p><b>GitHub profile:</b> <a href="https://github.com/andrenepomuceno" target="_blank">Link</a></p>
-    <p>Thanks for your visit!</p>
+    <p class="lead">Welcome to my personal page!</p>
+    <p class="lead">Here you can check out my portfolio, CV and so on.</p>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="img/logo.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">particle.js</h5>
+            <p class="card-text">A 3D n-body particle physics simulator based on WebGL, aka "miniverse simulator".</p>
+            <p class="card-text"><a href="https://andrenepomuceno.github.io/particle.js/"
+                target="_blank">particle.js</a> | <a href="https://github.com/andrenepomuceno/particle.js"
+                target="_blank">GitHub</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="img/espgarden.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">ESP Garden</h5>
+            <p class="card-text">An automatic, cloud based, garden irrigation and monitoring device based on ESP32
+              microcontroller.</p>
+            <p class="card-text"><a href="https://github.com/andrenepomuceno/esp_garden" target="_blank">GitHub</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="img/resume.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Resume</h5>
+            <p class="card-text"><a
+                href="https://drive.google.com/file/d/1t2wsReu8q0w_sugiXGDhktlJ096hZML1/view?usp=sharing"
+                target="_blank">PDF</a> | <a
+                href="https://docs.google.com/document/d/1IuWmcUzSy_nhkxQhbehwFq9WCi36_4RsOJz01w84eMs/edit?usp=sharing"
+                target="_blank">Google Docs</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src="img/github.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">GitHub</h5>
+            <p class="card-text"><a href="https://github.com/andrenepomuceno" target="_blank">Profile</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="lead">Thanks for your visit and come back soon!</p>
   </div>
   <script src="./main.js"></script>
 </body>
