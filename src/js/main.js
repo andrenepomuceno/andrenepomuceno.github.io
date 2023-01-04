@@ -9,5 +9,5 @@ if (ENV?.prod == true) {
         gtag('config', 'G-8X67LC7LY9');
     }
     
-    analytics();
+    new Promise(analytics);
 }
