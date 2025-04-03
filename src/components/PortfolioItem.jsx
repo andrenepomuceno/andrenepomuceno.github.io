@@ -54,11 +54,11 @@ function PortfolioItem({ item, index }) {
 
       <Grid order={textOrder} sx={textColumnSx} >
         <Paper
-            elevation={4}
-            sx={{
-              p: { xs: 2, sm: 3, md: 4 },
-              width: '100%'
-            }}
+          elevation={4}
+          sx={{
+            p: { xs: 2, sm: 3, md: 4 },
+            width: '100%',
+          }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
             {item.icon}
@@ -73,10 +73,10 @@ function PortfolioItem({ item, index }) {
             variant="body2"
             color="text.secondary"
             sx={{
-                mb: 3,
-                whiteSpace: 'pre-line',
-                overflowWrap: 'break-word',
-             }}
+              mb: 3,
+              whiteSpace: 'pre-line',
+              overflowWrap: 'break-word',
+            }}
           >
             {item.description}
           </Typography>

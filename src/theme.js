@@ -27,66 +27,74 @@ export const elegantDarkTheme = createTheme({
       letterSpacing: '-0.5px',
     },
     h4: {
-        fontWeight: 600,
-        marginBottom: '0.5em',
+      fontWeight: 600,
+      marginBottom: '0.5em',
     },
     h5: {
       fontWeight: 600,
     },
     body1: {
-        fontSize: '1rem',
-        lineHeight: 1.6,
+      fontSize: '1rem',
+      lineHeight: 1.6,
     },
     body2: {
-        fontSize: '0.95rem',
-        color: 'rgba(255, 255, 255, 0.75)',
-        marginBottom: '1.5em',
+      fontSize: '0.95rem',
+      color: 'rgba(255, 255, 255, 0.75)',
+      marginBottom: '1.5em',
     }
   },
   components: {
-     MuiPaper: {
-        styleOverrides: {
-            root: ({ theme }) => ({
-                padding: theme.spacing(3),
-                backgroundColor: theme.palette.background.paper,
-                borderRadius: '12px',
-                display: 'flex',
-                flexDirection: 'column',
-            }),
+    MuiCssBaseline: {
+      styleOverrides: `
+        body {
+          background: linear-gradient(180deg,rgb(36, 36, 36) 0%, #0f0f0f 100%);
+          background-attachment: fixed;
         }
-     },
+      `,
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          padding: theme.spacing(3),
+          backgroundColor: theme.palette.background.paper,
+          borderRadius: '12px',
+          display: 'flex',
+          flexDirection: 'column',
+        }),
+      }
+    },
     MuiLink: {
-        styleOverrides: {
-            root: ({ theme }) => ({
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                textDecoration: 'none',
-                fontWeight: 500,
-                color: theme.palette.primary.light,
-                transition: 'color 0.2s ease, background-color 0.2s ease',
-                padding: '4px 8px',
-                borderRadius: '4px',
-                '&:hover': {
-                    color: theme.palette.primary.main,
-                    backgroundColor: alpha(theme.palette.primary.light, 0.1),
-                    textDecoration: 'none',
-                }
-            })
-        }
+      styleOverrides: {
+        root: ({ theme }) => ({
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '6px',
+          textDecoration: 'none',
+          fontWeight: 500,
+          color: theme.palette.primary.light,
+          transition: 'color 0.2s ease, background-color 0.2s ease',
+          padding: '4px 8px',
+          borderRadius: '4px',
+          '&:hover': {
+            color: theme.palette.primary.main,
+            backgroundColor: alpha(theme.palette.primary.light, 0.1),
+            textDecoration: 'none',
+          }
+        })
+      }
     },
     MuiContainer: {
-        styleOverrides: {
-            root: {}
-        }
+      styleOverrides: {
+        root: {}
+      }
     },
     MuiGrid: {
-        styleOverrides: {
-            item: {
-                 paddingTop: '0 !important',
-                 paddingBottom: '0 !important',
-            }
+      styleOverrides: {
+        item: {
+          paddingTop: '0 !important',
+          paddingBottom: '0 !important',
         }
+      }
     }
   }
 });
