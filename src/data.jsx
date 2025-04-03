@@ -41,25 +41,5 @@ export const portfolioItems = [
         links: [
             { href: 'https://github.com/andrenepomuceno/wallet.py', text: 'View Code', icon: <GitHubIcon fontSize="small" /> },
         ],
-    },
-    {
-        category: 'Link',
-        icon: <DescriptionIcon fontSize="large" />,
-        title: 'Professional Resume',
-        description: 'Access my complete and updated resume, detailing experiences, skills, and academic background.',
-        imgSrc: '/img/resume.png',
-        links: [
-            { href: 'https://docs.google.com/document/d/1IuWmcUzSy_nhkxQhbehwFq9WCi36_4RsOJz01w84eMs/edit?usp=sharing', text: 'Open Resume', icon: <LaunchIcon fontSize="small" /> },
-        ],
-    },
-    {
-        category: 'Link',
-        icon: <GitHubIcon fontSize="large" />,
-        title: 'GitHub Profile',
-        description: 'Explore my open-source projects, contributions, and activities on the GitHub platform.',
-        imgSrc: '/img/github.png',
-        links: [
-            { href: 'https://github.com/andrenepomuceno', text: 'Visit Profile', icon: <LaunchIcon fontSize="small" /> },
-        ],
-    },
+    }
 ];
