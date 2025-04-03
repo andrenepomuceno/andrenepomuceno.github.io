@@ -2,42 +2,46 @@ import React from 'react';
 import { ThemeProvider, CssBaseline, Container, Typography, Box, Avatar } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 
-// Importa o tema, os dados e o componente de item
+// Import theme, data, and item component // Traduzido
 import { elegantDarkTheme } from './theme';
-import { portfolioItems } from './data';
-import PortfolioItem from './components/PortfolioItem'; // Assumindo que PortfolioItem.jsx está em src/components/
+import { portfolioItems } from './data'; // Assuming data.jsx is already translated
+import PortfolioItem from './components/PortfolioItem';
 
 function App() {
   return (
-    // Aplica o tema MUI
+    // Apply MUI theme // Traduzido
     <ThemeProvider theme={elegantDarkTheme}>
-      <CssBaseline /> {/* Normaliza estilos e aplica fundo do tema */}
+      {/* Normalize styles and apply theme background */} {/* Traduzido */}
+      <CssBaseline />
       <Container maxWidth="lg" sx={{ py: 6 }}>
 
-        {/* Seção Hero (Introdutória) */}
+        {/* Hero Section (Introductory) */} {/* Traduzido */}
         <Box sx={{ textAlign: 'center', mb: 10 }}>
            <Avatar sx={{ width: 80, height: 80, margin: '0 auto 16px', bgcolor: 'primary.main' }}>
              <CodeIcon fontSize="large" />
            </Avatar>
+          {/* Title remains the same (proper name) */}
           <Typography variant="h1" component="h1" gutterBottom>
             André Nepomuceno
           </Typography>
+          {/* Subtitle translated */}
           <Typography variant="h6" component="p" sx={{ color: 'text.secondary', mb: 2, maxWidth: '600px', margin: '0 auto' }}>
-            Bem-vindo à minha página pessoal! Explore meus projetos, currículo e outras informações.
+            Welcome to my personal page! Explore my projects, resume, and other information.
           </Typography>
         </Box>
 
-        {/* Layout usando o componente PortfolioItem */}
+        {/* Layout using the PortfolioItem component */} {/* Traduzido */}
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {/* Mapeia os dados e renderiza um PortfolioItem para cada */}
+          {/* Map data and render a PortfolioItem for each */} {/* Traduzido */}
           {portfolioItems.map((item, index) => (
             <PortfolioItem key={index} item={item} index={index} />
           ))}
         </Box>
 
-         {/* Texto de Rodapé */}
+         {/* Footer Text */} {/* Traduzido */}
+         {/* Footer text translated */}
         <Typography variant="body2" component="p" sx={{ textAlign: 'center', mt: 10, color: 'text.secondary' }}>
-          Obrigado pela visita! Volte sempre.
+          Thanks for visiting! Come back anytime.
         </Typography>
 
       </Container>
