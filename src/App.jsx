@@ -12,9 +12,9 @@ function App() {
       <CssBaseline />
       <Container maxWidth="lg" sx={{ py: 6 }}>
         <Box sx={{ textAlign: 'center', mb: 10 }}>
-           <Avatar sx={{ width: 80, height: 80, margin: '0 auto 16px', bgcolor: 'primary.main' }}>
-             <CodeIcon fontSize="large" />
-           </Avatar>
+          <Avatar sx={{ width: 80, height: 80, margin: '0 auto 16px', bgcolor: 'primary.main' }}>
+            <CodeIcon fontSize="large" />
+          </Avatar>
           <Typography variant="h1" component="h1" gutterBottom>
             André Nepomuceno
           </Typography>
@@ -31,6 +31,9 @@ function App() {
 
         <Typography variant="body2" component="p" sx={{ textAlign: 'center', mt: 10, color: 'text.secondary' }}>
           Thanks for visiting! Come back anytime.
+          <Box component="span" sx={{ display: 'block', fontSize: '0.8em', mt: 1, opacity: 0.7 }}>
+            v{import.meta.env.VITE_APP_VERSION}
+          </Box>
         </Typography>
 
       </Container>
