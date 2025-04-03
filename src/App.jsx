@@ -7,6 +7,7 @@ import { elegantDarkTheme } from './theme';
 import { portfolioItems } from './data';
 import PortfolioItem from './components/PortfolioItem';
 import AboutMe from './components/AboutMe';
+import AnimatedBackground from './components/AnimatedBackground';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -39,7 +40,6 @@ function a11yProps(index) {
 
 function App() {
   const [selectedTab, setSelectedTab] = useState(0);
-
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
@@ -47,9 +47,13 @@ function App() {
   return (
     <ThemeProvider theme={elegantDarkTheme}>
       <CssBaseline />
-      <Container maxWidth="lg" sx={{ py: 6 }}>
-        {/* Header Section (remains the same) */}
-        <Box sx={{ textAlign: 'center', mb: 6 }}> {/* Reduced margin bottom slightly */}
+      {/* Render Background aqui, fora do Container principal */}
+      <AnimatedBackground />
+
+      <Container maxWidth="lg" sx={{ py: 6, position: 'relative', zIndex: 1 }}> {/* Garante que o conteúdo fique sobre o background */}
+        {/* Header Section */}
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
+          {/* ... (código do header) ... */}
           <Avatar sx={{ width: 80, height: 80, margin: '0 auto 16px', bgcolor: 'primary.main' }}>
             <CodeIcon fontSize="large" />
           </Avatar>
@@ -61,7 +65,9 @@ function App() {
           </Typography>
         </Box>
 
+        {/* Tabs Navigation */}
         <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 4 }}>
+          {/* ... (código das Tabs) ... */}
           <Tabs
             value={selectedTab}
             onChange={handleTabChange}
@@ -85,10 +91,10 @@ function App() {
           </Tabs>
         </Box>
 
+        {/* Tab Content Panels */}
         <TabPanel value={selectedTab} index={0}>
           <AboutMe />
         </TabPanel>
-
         <TabPanel value={selectedTab} index={1}>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {portfolioItems.map((item, index) => (
@@ -97,13 +103,14 @@ function App() {
           </Box>
         </TabPanel>
 
+        {/* Footer Section */}
         <Typography variant="body2" component="p" sx={{ textAlign: 'center', mt: 10, color: 'text.secondary' }}>
+          {/* ... (código do footer) ... */}
           Thanks for visiting! Come back anytime.
           <Box component="span" sx={{ display: 'block', fontSize: '0.8em', mt: 1, opacity: 0.7 }}>
             v{import.meta.env.VITE_APP_VERSION}
           </Box>
         </Typography>
-
       </Container>
     </ThemeProvider>
   );
