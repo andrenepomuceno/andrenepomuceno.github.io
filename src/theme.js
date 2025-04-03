@@ -1,19 +1,18 @@
 import { createTheme } from '@mui/material/styles';
-import { alpha } from '@mui/material/styles'; // Importar alpha para transparência
+import { alpha } from '@mui/material/styles';
 
-// Definição do tema 'elegantDarkTheme'
 export const elegantDarkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#a6d4fa', // Azul primário
+      main: '#a6d4fa',
     },
     secondary: {
-      main: '#f4a2a3', // Rosa secundário
+      main: '#f4a2a3',
     },
     background: {
-      default: '#0f0f0f', // Fundo principal muito escuro
-      paper: '#1f1f1f', // Fundo do Paper um pouco mais claro
+      default: '#0f0f0f',
+      paper: '#1f1f1f',
     },
     text: {
       primary: 'rgba(255, 255, 255, 0.9)',
@@ -21,13 +20,13 @@ export const elegantDarkTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif', // Garante Inter como padrão
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
       fontWeight: 700,
       fontSize: '3rem',
       letterSpacing: '-0.5px',
     },
-    h4: { // Usado para títulos dos itens
+    h4: {
         fontWeight: 600,
         marginBottom: '0.5em',
     },
@@ -45,7 +44,7 @@ export const elegantDarkTheme = createTheme({
     }
   },
   components: {
-     MuiPaper: { // Estilo para o container do texto
+     MuiPaper: {
         styleOverrides: {
             root: ({ theme }) => ({
                 padding: theme.spacing(3),
@@ -65,13 +64,12 @@ export const elegantDarkTheme = createTheme({
                 textDecoration: 'none',
                 fontWeight: 500,
                 color: theme.palette.primary.light,
-                transition: 'color 0.2s ease, background-color 0.2s ease', // Transição suave
+                transition: 'color 0.2s ease, background-color 0.2s ease',
                 padding: '4px 8px',
                 borderRadius: '4px',
                 '&:hover': {
-                    // Efeito hover mais sutil: leve fundo e texto um pouco mais claro
-                    color: theme.palette.primary.main, // Cor primária no hover
-                    backgroundColor: alpha(theme.palette.primary.light, 0.1), // Fundo levemente azulado e transparente
+                    color: theme.palette.primary.main,
+                    backgroundColor: alpha(theme.palette.primary.light, 0.1),
                     textDecoration: 'none',
                 }
             })
@@ -79,15 +77,13 @@ export const elegantDarkTheme = createTheme({
     },
     MuiContainer: {
         styleOverrides: {
-            root: {
-                // backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.0))',
-            }
+            root: {}
         }
     },
     MuiGrid: {
         styleOverrides: {
             item: {
-                 paddingTop: '0 !important', // Evita padding extra do Grid item
+                 paddingTop: '0 !important',
                  paddingBottom: '0 !important',
             }
         }
