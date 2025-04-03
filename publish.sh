@@ -14,3 +14,5 @@ git tag v$1
 git push origin v$1
 
 git push origin main
+
+git checkout dev

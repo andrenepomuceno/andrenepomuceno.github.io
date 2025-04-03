@@ -1,42 +1,51 @@
 import React from 'react';
 import { Grid, Paper, Link, Box, Typography } from '@mui/material';
 
-// Component to display a portfolio item using alternative Grid v2 syntax (sx prop) // Traduzido
+// Componente para exibir um item do portfólio
 function PortfolioItem({ item, index }) {
 
-  // Order doesn't change // Traduzido
+  // Ordem não muda
   const imageOrder = { xs: 1, md: 1 };
   const textOrder = { xs: 2, md: 2 };
 
-  // Base styles for columns (to merge with gridColumn) // Traduzido
+  // Estilos base para as colunas
   const imageColumnSx = {
     display: 'flex',
-    alignItems: 'flex-start', // Mantém alinhamento ao topo
-    gridColumn: { xs: 'span 12', md: 'span 6' } // **NEW: Define size via gridColumn** // Traduzido
+    alignItems: 'flex-start',
+    gridColumn: { xs: 'span 12', md: 'span 6' }
   };
 
   const textColumnSx = {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-start', // Mantém alinhamento ao topo
-    gridColumn: { xs: 'span 12', md: 'span 6' } // **NEW: Define size via gridColumn** // Traduzido
+    justifyContent: 'flex-start',
+    gridColumn: { xs: 'span 12', md: 'span 6' }
   };
 
 
   return (
+    // Aplica o efeito de hover no Grid container principal
     <Grid
-      container // This is the container
+      container
       spacing={{ xs: 2, md: 5 }}
-      sx={{ mb: 4 }}
+      sx={{
+        mb: 4,
+        // Adiciona uma transição suave para a propriedade transform
+        transition: 'transform 0.3s ease-in-out',
+        // Define o estilo quando o mouse estiver sobre o elemento
+        '&:hover': {
+          transform: 'scale(1.02)', // Aumenta levemente a escala do item
+          // Você poderia adicionar outros efeitos aqui, como aumentar a sombra:
+          // boxShadow: '0 12px 24px rgba(0,0,0,0.25)'
+        },
+      }}
     >
-      {/* Image Column (Always Left on 'md+') */} {/* Traduzido */}
-      {/* Removed xs/md props, using sx with gridColumn */} {/* Traduzido */}
+      {/* Coluna da Imagem */}
       <Grid order={imageOrder} sx={imageColumnSx} >
         <Box
           component="img"
           src={item.imgSrc}
-          // Alt text translated
-          alt={`[Image of ${item.title}]`}
+          alt={`[Image of ${item.title}]`} // Usando texto alt em inglês
           sx={{
             width: '100%',
             height: 'auto',
@@ -44,35 +53,34 @@ function PortfolioItem({ item, index }) {
             display: 'block',
             borderRadius: '12px',
             objectFit: 'cover',
-            boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+            boxShadow: '0 8px 16px rgba(0,0,0,0.2)', // Sombra existente
           }}
           onError={(e) => {
             e.target.onerror = null;
-            // Error message text translated inside the URL
-            e.target.src = `https://placehold.co/600x400/1a1a1a/666?text=Error+loading+${item.title}`;
+            e.target.src = `https://placehold.co/600x400/1a1a1a/666?text=Error+loading+${item.title}`; // Mensagem de erro em inglês
             e.target.style.objectFit = 'contain';
           }}
         />
       </Grid>
 
-      {/* Text Column (Always Right on 'md+') */} {/* Traduzido */}
-       {/* Removed xs/md props, using sx with gridColumn */} {/* Traduzido */}
+      {/* Coluna do Texto */}
       <Grid order={textOrder} sx={textColumnSx} >
-        {/* Paper with automatic height */} {/* Traduzido */}
         <Paper
-            elevation={4}
-            sx={{ p: { xs: 2, sm: 3, md: 4 }, width: '100%' }} // Takes full width // Traduzido
+            elevation={4} // Mantém a elevação padrão
+            sx={{
+              p: { xs: 2, sm: 3, md: 4 },
+              width: '100%'
+              // A transição principal já está no Grid container
+            }}
         >
-          {/* Paper Content */} {/* Traduzido */}
+          {/* Conteúdo do Paper (Título, Descrição, Links) */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
             {item.icon}
             <Typography variant="overline" color="primary">
-              {/* Assuming item.category is already translated from data.jsx */}
               {item.category}
             </Typography>
           </Box>
           <Typography variant="h4" component="h2" gutterBottom>
-             {/* Assuming item.title is already translated from data.jsx */}
             {item.title}
           </Typography>
           <Typography
@@ -80,15 +88,13 @@ function PortfolioItem({ item, index }) {
             color="text.secondary"
             sx={{
                 mb: 3,
-                whiteSpace: 'pre-line',    // Respects \n // Traduzido
-                overflowWrap: 'break-word', // Breaks long words // Traduzido
+                whiteSpace: 'pre-line',
+                overflowWrap: 'break-word',
              }}
           >
-             {/* Assuming item.description is already translated from data.jsx */}
             {item.description}
           </Typography>
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
-             {/* Assuming item.links[...].text is already translated from data.jsx */}
             {item.links.map((link, linkIndex) => (
               <Link
                 href={link.href}
@@ -96,6 +102,7 @@ function PortfolioItem({ item, index }) {
                 rel="noopener noreferrer"
                 key={linkIndex}
                 underline="none"
+                // Estilo do link já vem do tema (theme.js)
               >
                 {link.icon}
                 {link.text}
