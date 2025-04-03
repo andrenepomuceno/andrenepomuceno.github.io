@@ -31,6 +31,11 @@ jobs:
       env:
         VITE_GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
         VITE_APP_VERSION: ${{ env.VERSION }}
+
+    - name: Create and push tag
+      run: |
+        git tag v${{ env.VERSION }}
+        git push origin v${{ env.VERSION }}
         
     - name: Deploy gh-pages
       uses: JamesIves/github-pages-deploy-action@v4
