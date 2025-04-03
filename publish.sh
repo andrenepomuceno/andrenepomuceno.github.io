@@ -2,16 +2,15 @@
 
 set -e
 
-git pull origin main
-git push origin dev
+git fetch
 
 git checkout main
+git merge origin/main
 
 git merge dev
-
-git push origin main
+git push origin dev
 
 git tag v$1
 git push origin v$1
 
-git checkout dev
+git push origin main
