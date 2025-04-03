@@ -15,7 +15,7 @@ export const portfolioItems = [
         category: 'Projeto Pessoal',
         icon: <ScienceIcon fontSize="large" />,
         title: 'particle.js',
-        description: 'Um simulador 3D interativo de física de partículas n-body, construído com WebGL para\nvisualização direta no navegador.',
+        description: 'Um simulador 3D interativo de física de partículas n-body, construído com WebGL para visualização direta no navegador.',
         imgSrc: '/img/particlejs.png', // Caminho relativo à pasta 'public'
         links: [
             { href: 'https://andrenepomuceno.github.io/particle.js/', text: 'Demo Online', icon: <LaunchIcon fontSize="small" /> },
@@ -28,7 +28,7 @@ export const portfolioItems = [
         category: 'Projeto Pessoal',
         icon: <YardIcon fontSize="large" />,
         title: 'ESP Garden',
-        description: 'Sistema automatizado para irrigação e monitoramento de jardins utilizando microcontrolador ESP32,\ncom integração em nuvem.',
+        description: 'Sistema automatizado para irrigação e monitoramento de jardins utilizando microcontrolador ESP32, com integração em nuvem.',
         imgSrc: '/img/espgarden.png',
         links: [
             { href: 'https://github.com/andrenepomuceno/esp_garden', text: 'Ver Código', icon: <GitHubIcon fontSize="small" /> },
@@ -38,7 +38,7 @@ export const portfolioItems = [
         category: 'Projeto Pessoal',
         icon: <AccountBalanceWalletIcon fontSize="large" />,
         title: 'wallet.py',
-        description: 'Aplicação web desenvolvida com Flask para gerenciamento e análise detalhada de\nportfólios de investimentos.',
+        description: 'Aplicação web desenvolvida com Flask para gerenciamento e análise detalhada de portfólios de investimentos.',
         imgSrc: '/img/wallet.png',
         links: [
             { href: 'https://github.com/andrenepomuceno/wallet.py', text: 'Ver Código', icon: <GitHubIcon fontSize="small" /> },
