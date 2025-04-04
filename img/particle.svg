@@ -1,0 +1,11 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="softParticleGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="8%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+      <stop offset="14%" style="stop-color:rgb(255,255,255);stop-opacity:0.5" />
+      <!-- <stop offset="50%" style="stop-color:rgb(255,255,255);stop-opacity:0.1" /> -->
+      <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="32" fill="url(#softParticleGradient)" />
+</svg>
