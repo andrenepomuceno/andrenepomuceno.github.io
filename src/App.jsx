@@ -64,9 +64,7 @@ function App() {
                     </Typography>
                 </Box>
 
-
                 <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 4 }}>
-
                     <Tabs
                         value={selectedTab}
                         onChange={handleTabChange}
@@ -90,7 +88,6 @@ function App() {
                     </Tabs>
                 </Box>
 
-
                 <TabPanel value={selectedTab} index={0}>
                     <AboutMe />
                 </TabPanel>
@@ -102,11 +99,10 @@ function App() {
                     </Box>
                 </TabPanel>
 
-
                 <Typography variant="body2" component="p" sx={{ textAlign: 'center', mt: 10, color: 'text.secondary' }}>
 
                     Thanks for visiting! Come back anytime.
-                    <Box component="span" sx={{ display: 'block', fontSize: '0.8em', mt: 1, opacity: 0.7 }}>
+                    <Box component="span" sx={{ display: 'block', fontSize: '0.6em', mt: 1, opacity: 0.7 }}>
                         v{import.meta.env.VITE_APP_VERSION}
                     </Box>
                 </Typography>
