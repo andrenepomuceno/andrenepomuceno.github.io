@@ -11,12 +11,12 @@ export const elegantDarkTheme = createTheme({
             main: '#f4a2a3',
         },
         background: {
-            default: '#090909',
-            paper: '#1f1f1f',
+            default: 'rgb(9, 9, 9)',
+            paper: 'rgba(31, 31, 31, 0.9)',
         },
         text: {
-            primary: 'rgba(255, 255, 255, 0.9)',
-            secondary: 'rgba(255, 255, 255, 0.7)',
+            primary: 'rgba(255, 255, 255, 1.0)',
+            secondary: 'rgba(255, 255, 255, 1.0)',
         },
     },
     typography: {
@@ -47,7 +47,7 @@ export const elegantDarkTheme = createTheme({
         MuiCssBaseline: {
             styleOverrides: `
         body {
-          background: linear-gradient(180deg,rgb(24, 24, 24) 0%,rgb(0, 6, 0) 100%);
+          background: linear-gradient(180deg,rgb(20, 20, 20) 0%,rgb(0, 6, 10) 100%);
           background-attachment: fixed;
         }
       `,
