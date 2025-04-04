@@ -3,10 +3,6 @@ import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { Box } from '@mui/material';
 
-const fireflyColor1 = '#ADFF2F';
-const fireflyColor2 = '#DAA520';
-const fireflyColor3 = '#FFFFE0';
-
 const updatedVertexShader = `
 
   attribute float aBlinkOffset; 
@@ -91,14 +87,27 @@ function AnimatedBackground() {
         const colors = new Float32Array(particleCount * 3);
         const aBlinkOffset = new Float32Array(particleCount);
 
-        const colorPalette = [
-            new THREE.Color(fireflyColor1),
-            new THREE.Color(fireflyColor2),
-            new THREE.Color(fireflyColor3)
+        const fireflyColors = [
+            '#FFFFFF',  // Pure white
+            // '#FFFACD',  // Lemon chiffon
+            '#FFFFE0',  // Light yellow
+            '#FFD700',  // Gold
+            '#FFA500',  // Orange
+            '#FF4500',  // Red-orange
+            // '#FF69B4',  // Hot pink
+            // '#FF1493',  // Deep pink
+            // '#FF0000',  // Red
+            // '#ADFF2F',  // Green yellow
+            // '#7FFF00',  // Chartreuse
+            '#00FF7F',  // Spring green
+            // '#87CEFA',  // Light sky blue
+            // '#E6E6FA',  // Lavender
+            // '#DDA0DD'   // Plum
         ];
+        const colorPalette = fireflyColors.map(color => new THREE.Color(color));
 
         const particleSpread = 400;
-        const blinkPeriod = 10.0;
+        const blinkPeriod = 15.0;
 
         for (let i = 0; i < particleCount; i++) {
             const i3 = i * 3;

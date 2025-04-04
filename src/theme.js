@@ -47,7 +47,7 @@ export const elegantDarkTheme = createTheme({
         MuiCssBaseline: {
             styleOverrides: `
         body {
-          background: linear-gradient(180deg,rgb(20, 20, 20) 0%,rgb(0, 6, 10) 100%);
+          background: linear-gradient(180deg,rgb(20, 20, 20) 0%,rgb(0, 15, 18) 100%);
           background-attachment: fixed;
         }
       `,
