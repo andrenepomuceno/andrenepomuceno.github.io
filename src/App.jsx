@@ -102,8 +102,8 @@ function App() {
                 <Typography variant="body2" component="p" sx={{ textAlign: 'center', mt: 10, color: 'text.secondary' }}>
 
                     Thanks for visiting! Come back anytime.
-                    <Box component="span" sx={{ display: 'block', fontSize: '0.6em', mt: 1, opacity: 0.7 }}>
-                        v{import.meta.env.VITE_APP_VERSION}
+                    <Box component="span" sx={{ display: 'block', fontSize: '0.8em', mt: 1, opacity: 0.7 }}>
+                        v{import.meta.env.PROD ? import.meta.env.VITE_APP_VERSION : '0.0.0' }
                     </Box>
                 </Typography>
             </Container>
