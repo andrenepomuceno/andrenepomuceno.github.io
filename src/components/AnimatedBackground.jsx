@@ -19,7 +19,7 @@ function AnimatedBackground() {
 
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-        camera.position.z = 50;
+        camera.position.z = 100;
 
         const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.setSize(width, height);
@@ -31,7 +31,7 @@ function AnimatedBackground() {
         const particleTexture = textureLoader.load('/particle.svg');
 
         // --- Criação das Partículas (com Cores Variadas) ---
-        const particleCount = 500;
+        const particleCount = 1000;
         const particlesGeometry = new THREE.BufferGeometry();
         const positions = new Float32Array(particleCount * 3);
         const colors = new Float32Array(particleCount * 3); // Array para as cores (r, g, b)
@@ -43,13 +43,14 @@ function AnimatedBackground() {
             new THREE.Color(neutralColor)
         ];
 
+        const radius = 300;
         for (let i = 0; i < particleCount; i++) {
             const i3 = i * 3; // Índice base para x, y, z e r, g, b
 
             // Posições aleatórias
-            positions[i3 + 0] = (Math.random() - 0.5) * 200; // x
-            positions[i3 + 1] = (Math.random() - 0.5) * 200; // y
-            positions[i3 + 2] = (Math.random() - 0.5) * 200; // z
+            positions[i3 + 0] = (Math.random() - 0.5) * radius; // x
+            positions[i3 + 1] = (Math.random() - 0.5) * radius; // y
+            positions[i3 + 2] = (Math.random() - 0.5) * radius; // z
 
             // Escolhe uma cor aleatória da paleta
             const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
@@ -87,8 +88,8 @@ function AnimatedBackground() {
         const animate = () => {
             reqId = requestAnimationFrame(animate);
 
-            particleSystem.rotation.y += 0.0001;
-            particleSystem.rotation.x += 0.00005;
+            particleSystem.rotation.y += 0.00001;
+            particleSystem.rotation.x += 0.00002;
 
             camera.position.x += (mouse.x * 5 - camera.position.x) * 0.001;
             camera.position.y += (-mouse.y * 5 - camera.position.y) * 0.001;
