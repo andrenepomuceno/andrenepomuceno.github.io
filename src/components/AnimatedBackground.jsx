@@ -86,8 +86,8 @@ function AnimatedBackground() {
         const animate = () => {
             reqId = requestAnimationFrame(animate);
 
-            particleSystem.rotation.y += 0.00001;
-            particleSystem.rotation.x += 0.00002;
+            particleSystem.rotation.y += 0.00003;
+            particleSystem.rotation.x += 0.00005;
 
             camera.position.x += (mouse.x * 5 - camera.position.x) * 0.001;
             camera.position.y += (-mouse.y * 5 - camera.position.y) * 0.001;

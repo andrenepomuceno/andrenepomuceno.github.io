@@ -47,13 +47,12 @@ function App() {
     return (
         <ThemeProvider theme={elegantDarkTheme}>
             <CssBaseline />
-            {/* Render Background aqui, fora do Container principal */}
             <AnimatedBackground />
 
-            <Container maxWidth="lg" sx={{ py: 6, position: 'relative', zIndex: 1 }}> {/* Garante que o conteúdo fique sobre o background */}
-                {/* Header Section */}
+            <Container maxWidth="lg" sx={{ py: 6, position: 'relative', zIndex: 1 }}>
+
                 <Box sx={{ textAlign: 'center', mb: 6 }}>
-                    {/* ... (código do header) ... */}
+
                     <Avatar sx={{ width: 80, height: 80, margin: '0 auto 16px', bgcolor: 'primary.main' }}>
                         <CodeIcon fontSize="large" />
                     </Avatar>
@@ -61,13 +60,13 @@ function App() {
                         André Nepomuceno
                     </Typography>
                     <Typography variant="h6" component="p" sx={{ color: 'text.secondary', mb: 2, maxWidth: '600px', margin: '0 auto' }}>
-                        Welcome to my personal page! Explore my projects, resume, and other information.
+                        Welcome to my page! Explore my projects, resume, and other information.
                     </Typography>
                 </Box>
 
-                {/* Tabs Navigation */}
+
                 <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 4 }}>
-                    {/* ... (código das Tabs) ... */}
+
                     <Tabs
                         value={selectedTab}
                         onChange={handleTabChange}
@@ -91,7 +90,7 @@ function App() {
                     </Tabs>
                 </Box>
 
-                {/* Tab Content Panels */}
+
                 <TabPanel value={selectedTab} index={0}>
                     <AboutMe />
                 </TabPanel>
@@ -103,9 +102,9 @@ function App() {
                     </Box>
                 </TabPanel>
 
-                {/* Footer Section */}
+
                 <Typography variant="body2" component="p" sx={{ textAlign: 'center', mt: 10, color: 'text.secondary' }}>
-                    {/* ... (código do footer) ... */}
+
                     Thanks for visiting! Come back anytime.
                     <Box component="span" sx={{ display: 'block', fontSize: '0.8em', mt: 1, opacity: 0.7 }}>
                         v{import.meta.env.VITE_APP_VERSION}
