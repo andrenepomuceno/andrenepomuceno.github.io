@@ -82,7 +82,7 @@ function App() {
                         <Tab
                             icon={<FolderIcon />}
                             iconPosition="start"
-                            label="Projects"
+                            label="Hobby Projects"
                             {...a11yProps(1)}
                         />
                     </Tabs>
