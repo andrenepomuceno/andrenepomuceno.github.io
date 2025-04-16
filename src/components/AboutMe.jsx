@@ -43,7 +43,7 @@ function AboutMe() {
                     For the last 10+ years, I've been diving deep into the world of software and hardware engineering. It's been a fun ride, taking me through challenging projects involving both code and hardware in diverse areas like fintech, medical devices, defense systems, and renewable energy tech.
                 </Typography>
                 <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7, mb: 3 }} paragraph>
-                    I get a kick out of designing systems built to handle serious scale, optimizing performance, and helping engineering teams thrive. You'll often find me working with embedded systems, cloud infrastructure, or puzzling out hardware and software designs or debugging.
+                    I get a kick out of designing systems built to handle serious scale, optimizing performance, and helping engineering teams thrive. You'll often find me working with embedded systems, cloud infrastructure, or puzzling out hardware and software designs.
                 </Typography>
                 <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7, mb: 3 }} paragraph>
                     Ultimately, I love solving tricky problems and building robust, efficient solutions that make a difference.
