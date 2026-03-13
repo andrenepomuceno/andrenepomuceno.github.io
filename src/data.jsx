@@ -7,6 +7,8 @@ import ScienceIcon from '@mui/icons-material/Science';
 import YardIcon from '@mui/icons-material/Yard';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import LaunchIcon from '@mui/icons-material/Launch';
+import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+import WaterDropIcon from '@mui/icons-material/WaterDrop';
 
 export const portfolioItems = [
     {
@@ -40,6 +42,26 @@ export const portfolioItems = [
         imgSrc: '/img/wallet.png',
         links: [
             { href: 'https://github.com/andrenepomuceno/wallet.py', text: 'View Code', icon: <GitHubIcon fontSize="small" /> },
+        ],
+    },
+    {
+        category: 'Personal Project',
+        icon: <ElectricBoltIcon fontSize="large" />,
+        title: 'em-sim',
+        description: '2D electromagnetic wave simulation using the FDTD method (Yee grid) with TEz polarization, Mur absorbing boundaries, and live visualization.',
+        imgSrc: '/img/em-sim.png',
+        links: [
+            { href: 'https://github.com/andrenepomuceno/em-sim', text: 'View Code', icon: <GitHubIcon fontSize="small" /> },
+        ],
+    },
+    {
+        category: 'Personal Project',
+        icon: <WaterDropIcon fontSize="large" />,
+        title: 'fluid-sim',
+        description: '2D fluid simulation suite featuring Navier-Stokes (finite difference) and Lattice-Boltzmann (D2Q9) solvers with real-time visualization.',
+        imgSrc: '/img/fluid-sim.png',
+        links: [
+            { href: 'https://github.com/andrenepomuceno/fluid-sim', text: 'View Code', icon: <GitHubIcon fontSize="small" /> },
         ],
     }
 ];

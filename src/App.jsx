@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { ThemeProvider, CssBaseline, Container, Typography, Box, Avatar, Tabs, Tab, Fade } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 import PersonIcon from '@mui/icons-material/Person';
@@ -7,7 +7,8 @@ import { elegantDarkTheme } from './theme';
 import { portfolioItems } from './data';
 import PortfolioItem from './components/PortfolioItem';
 import AboutMe from './components/AboutMe';
-import AnimatedBackground from './components/AnimatedBackground';
+
+const AnimatedBackground = lazy(() => import('./components/AnimatedBackground'));
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -49,7 +50,9 @@ function App() {
     return (
         <ThemeProvider theme={elegantDarkTheme}>
             <CssBaseline />
-            <AnimatedBackground />
+            <Suspense fallback={null}>
+                <AnimatedBackground />
+            </Suspense>
 
             <Container maxWidth="lg" sx={{ py: 6, position: 'relative', zIndex: 1 }}>
 

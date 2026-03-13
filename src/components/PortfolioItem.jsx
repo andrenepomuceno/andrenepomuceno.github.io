@@ -1,65 +1,55 @@
-import React from 'react';
-import { Grid, Paper, Link, Box, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { Paper, Link, Box, Typography } from '@mui/material';
 
 function PortfolioItem({ item, index }) {
-    const imageOrder = { xs: 1, md: 1 };
-    const textOrder = { xs: 2, md: 2 };
-
-    const imageColumnSx = {
-        display: 'flex',
-        alignItems: 'flex-start',
-        gridColumn: { xs: 'span 12', md: 'span 6' }
-    };
-
-    const textColumnSx = {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        gridColumn: { xs: 'span 12', md: 'span 6' }
-    };
+    const [imgFailed, setImgFailed] = useState(false);
+    const hasImage = item.imgSrc && !imgFailed;
 
     return (
-        <Grid
-            container
-            spacing={{ xs: 2, md: 5 }}
+        <Box
             sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                gap: { xs: 2, md: 5 },
                 mb: 4,
-                transition: 'transform 0.3s ease-in-out',
-                '&:hover': {
-                    transform: 'scale(1.02)',
+                alignItems: 'flex-start',
+                borderRadius: '16px',
+                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                '@media (hover: hover)': {
+                    '&:hover': {
+                        transform: 'scale(1.02)',
+                        boxShadow: '0 12px 32px rgba(166, 212, 250, 0.08)',
+                    },
                 },
             }}
         >
-            <Grid order={imageOrder} sx={imageColumnSx} >
+            {hasImage && (
                 <Box
                     component="img"
                     src={item.imgSrc}
-                    alt={`[Image of ${item.title}]`}
+                    alt={`Image of ${item.title}`}
                     sx={{
-                        width: '100%',
+                        width: { xs: '100%', md: 'auto' },
                         height: 'auto',
-                        maxHeight: { xs: '300px', md: '400px' },
-                        display: 'block',
+                        maxWidth: '300px',
+                        maxHeight: { xs: '250px', md: '300px' },
+                        flexShrink: 0,
                         borderRadius: '12px',
                         objectFit: 'cover',
                         boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
                     }}
-                    onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = `https://placehold.co/600x400/1a1a1a/666?text=Error+loading+${item.title}`;
-                        e.target.style.objectFit = 'contain';
-                    }}
+                    onError={() => setImgFailed(true)}
                 />
-            </Grid>
+            )}
 
-            <Grid order={textOrder} sx={textColumnSx} >
-                <Paper
-                    elevation={4}
-                    sx={{
-                        p: { xs: 2, sm: 3, md: 4 },
-                        width: '100%',
-                    }}
-                >
+            <Paper
+                elevation={4}
+                sx={{
+                    p: { xs: 2, sm: 3, md: 4 },
+                    flex: 1,
+                    minWidth: 0,
+                }}
+            >
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
                         {item.icon}
                         <Typography variant="overline" color="primary">
@@ -95,8 +85,7 @@ function PortfolioItem({ item, index }) {
                         ))}
                     </Box>
                 </Paper>
-            </Grid>
-        </Grid>
+        </Box>
     );
 }
 
