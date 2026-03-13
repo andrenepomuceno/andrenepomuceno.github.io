@@ -15,8 +15,8 @@ export const elegantDarkTheme = createTheme({
             paper: 'rgba(31, 31, 31, 0.9)',
         },
         text: {
-            primary: 'rgba(255, 255, 255, 1.0)',
-            secondary: 'rgba(255, 255, 255, 1.0)',
+            primary: 'rgba(255, 255, 255, 0.95)',
+            secondary: 'rgba(255, 255, 255, 0.65)',
         },
     },
     typography: {
@@ -39,8 +39,7 @@ export const elegantDarkTheme = createTheme({
         },
         body2: {
             fontSize: '0.95rem',
-            color: 'rgba(255, 255, 255, 0.75)',
-            marginBottom: '1.5em',
+            lineHeight: 1.6,
         }
     },
     components: {
@@ -49,6 +48,16 @@ export const elegantDarkTheme = createTheme({
         body {
           background: linear-gradient(180deg,rgb(20, 20, 20) 0%,rgb(0, 15, 18) 100%);
           background-attachment: fixed;
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(24px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       `,
         },

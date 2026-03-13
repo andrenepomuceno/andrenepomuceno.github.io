@@ -81,28 +81,20 @@ function AnimatedBackground() {
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         currentRef.appendChild(renderer.domElement);
 
-        const particleCount = 1024;
+        const isMobile = width < 768;
+        const particleCount = isMobile ? 256 : 1024;
         const particlesGeometry = new THREE.BufferGeometry();
         const positions = new Float32Array(particleCount * 3);
         const colors = new Float32Array(particleCount * 3);
         const aBlinkOffset = new Float32Array(particleCount);
 
         const fireflyColors = [
-            '#FFFFFF',  // Pure white
-            // '#FFFACD',  // Lemon chiffon
-            '#FFFFE0',  // Light yellow
-            '#FFD700',  // Gold
-            '#FFA500',  // Orange
-            '#FF4500',  // Red-orange
-            // '#FF69B4',  // Hot pink
-            // '#FF1493',  // Deep pink
-            // '#FF0000',  // Red
-            // '#ADFF2F',  // Green yellow
-            // '#7FFF00',  // Chartreuse
-            '#00FF7F',  // Spring green
-            // '#87CEFA',  // Light sky blue
-            // '#E6E6FA',  // Lavender
-            // '#DDA0DD'   // Plum
+            '#FFFFFF',
+            '#FFFFE0',
+            '#FFD700',
+            '#FFA500',
+            '#FF4500',
+            '#00FF7F',
         ];
         const colorPalette = fireflyColors.map(color => new THREE.Color(color));
 
@@ -115,10 +107,6 @@ function AnimatedBackground() {
             positions[i3 + 0] = (Math.random() - 0.5) * particleSpread;
             positions[i3 + 1] = (Math.random() - 0.5) * particleSpread;
             positions[i3 + 2] = (Math.random() - 0.5) * particleSpread;
-            // positions[i3 + 2] = Math.sqrt(particleSpread * particleSpread - positions[i3 + 0] * positions[i3 + 0] - positions[i3 + 1] * positions[i3 + 1]);
-            // if (Math.random() < 0.5) {
-            //     positions[i3 + 2] *= -1;
-            // }
 
             const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
             colors[i3 + 0] = randomColor.r;

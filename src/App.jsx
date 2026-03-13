@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ThemeProvider, CssBaseline, Container, Typography, Box, Avatar, Tabs, Tab } from '@mui/material';
+import { ThemeProvider, CssBaseline, Container, Typography, Box, Avatar, Tabs, Tab, Fade } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 import PersonIcon from '@mui/icons-material/Person';
 import FolderIcon from '@mui/icons-material/Folder';
@@ -21,9 +21,11 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ pt: 3 }}>
-                    {children}
-                </Box>
+                <Fade in timeout={400}>
+                    <Box sx={{ pt: 3 }}>
+                        {children}
+                    </Box>
+                </Fade>
             )}
         </div>
     );
@@ -51,7 +53,7 @@ function App() {
 
             <Container maxWidth="lg" sx={{ py: 6, position: 'relative', zIndex: 1 }}>
 
-                <Box sx={{ textAlign: 'center', mb: 6 }}>
+                <Box sx={{ textAlign: 'center', mb: 6, animation: 'fadeInUp 0.8s ease-out' }}>
 
                     <Avatar sx={{ width: 80, height: 80, margin: '0 auto 16px', bgcolor: 'primary.main' }}>
                         <CodeIcon fontSize="large" />
@@ -64,7 +66,7 @@ function App() {
                     </Typography>
                 </Box>
 
-                <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 4 }}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 4, animation: 'fadeInUp 0.8s ease-out 0.2s both' }}>
                     <Tabs
                         value={selectedTab}
                         onChange={handleTabChange}
@@ -99,10 +101,10 @@ function App() {
                     </Box>
                 </TabPanel>
 
-                <Typography variant="body2" component="p" sx={{ textAlign: 'center', mt: 10, color: 'text.secondary' }}>
+                <Typography variant="body2" component="p" sx={{ textAlign: 'center', mt: 10, color: 'text.secondary', opacity: 0.8 }}>
 
                     Thanks for visiting! Come back anytime.
-                    <Box component="span" sx={{ display: 'block', fontSize: '0.8em', mt: 1, opacity: 0.7 }}>
+                    <Box component="span" sx={{ display: 'block', fontSize: '0.85em', mt: 1 }}>
                         v{import.meta.env.PROD ? import.meta.env.VITE_APP_VERSION : '0.0.0' }
                     </Box>
                 </Typography>
