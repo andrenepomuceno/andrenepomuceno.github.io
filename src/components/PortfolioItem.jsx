@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Paper, Link, Box, Typography } from '@mui/material';
+import { Paper, Link, Box, Typography, Chip } from '@mui/material';
 
 function PortfolioItem({ item, index }) {
     const [imgFailed, setImgFailed] = useState(false);
@@ -39,6 +39,7 @@ function PortfolioItem({ item, index }) {
                         boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
                     }}
                     onError={() => setImgFailed(true)}
+                    loading="lazy"
                 />
             )}
 
@@ -70,6 +71,19 @@ function PortfolioItem({ item, index }) {
                     >
                         {item.description}
                     </Typography>
+                    {item.tags && item.tags.length > 0 && (
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mb: 3 }}>
+                            {item.tags.map((tag) => (
+                                <Chip
+                                    key={tag}
+                                    label={tag}
+                                    size="small"
+                                    variant="outlined"
+                                    sx={{ borderColor: 'divider', color: 'text.secondary', fontSize: '0.75rem' }}
+                                />
+                            ))}
+                        </Box>
+                    )}
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
                         {item.links.map((link, linkIndex) => (
                             <Link
@@ -78,6 +92,7 @@ function PortfolioItem({ item, index }) {
                                 rel="noopener noreferrer"
                                 key={linkIndex}
                                 underline="none"
+                                aria-label={`${link.text} for ${item.title}`}
                             >
                                 {link.icon}
                                 {link.text}

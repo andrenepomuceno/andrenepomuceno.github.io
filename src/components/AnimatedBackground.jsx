@@ -166,6 +166,17 @@ function AnimatedBackground() {
         clockRef.current = new THREE.Clock();
         animate();
 
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                cancelAnimationFrame(reqId);
+                clockRef.current.stop();
+            } else {
+                clockRef.current.start();
+                animate();
+            }
+        };
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
         const handleResize = () => {
 
             const { clientWidth: newWidth, clientHeight: newHeight } = currentRef;
@@ -183,6 +194,7 @@ function AnimatedBackground() {
             cancelAnimationFrame(reqId);
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
             if (currentRef && renderer.domElement) {
 
                 currentRef.removeChild(renderer.domElement);

@@ -1,6 +1,5 @@
 import React from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import DescriptionIcon from '@mui/icons-material/Description';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import ScienceIcon from '@mui/icons-material/Science';
@@ -16,6 +15,7 @@ export const portfolioItems = [
         icon: <ScienceIcon fontSize="large" />,
         title: 'particle.js',
         description: 'An interactive 3D n-body particle physics simulator, built with WebGL for direct browser visualization.',
+        tags: ['JavaScript', 'Three.js', 'WebGL', 'Physics'],
         imgSrc: '/img/particlejs.png',
         links: [
             { href: 'https://andrenepomuceno.github.io/particle.js/', text: 'Online Demo', icon: <LaunchIcon fontSize="small" /> },
@@ -29,6 +29,7 @@ export const portfolioItems = [
         icon: <YardIcon fontSize="large" />,
         title: 'ESP Garden',
         description: 'Automated system for garden irrigation and monitoring using an ESP32 microcontroller, with cloud integration.',
+        tags: ['C++', 'ESP32', 'IoT', 'MQTT'],
         imgSrc: '/img/espgarden.png',
         links: [
             { href: 'https://github.com/andrenepomuceno/esp_garden', text: 'View Code', icon: <GitHubIcon fontSize="small" /> },
@@ -39,6 +40,7 @@ export const portfolioItems = [
         icon: <AccountBalanceWalletIcon fontSize="large" />,
         title: 'wallet.py',
         description: 'Web application developed with Flask for detailed management and analysis of investment portfolios.',
+        tags: ['Python', 'Flask', 'Finance'],
         imgSrc: '/img/wallet.png',
         links: [
             { href: 'https://github.com/andrenepomuceno/wallet.py', text: 'View Code', icon: <GitHubIcon fontSize="small" /> },
@@ -49,6 +51,7 @@ export const portfolioItems = [
         icon: <ElectricBoltIcon fontSize="large" />,
         title: 'em-sim',
         description: '2D electromagnetic wave simulation using the FDTD method (Yee grid) with TEz polarization, Mur absorbing boundaries, and live visualization.',
+        tags: ['Python', 'NumPy', 'FDTD', 'Electromagnetics'],
         imgSrc: '/img/em-sim.png',
         links: [
             { href: 'https://github.com/andrenepomuceno/em-sim', text: 'View Code', icon: <GitHubIcon fontSize="small" /> },
@@ -59,6 +62,7 @@ export const portfolioItems = [
         icon: <WaterDropIcon fontSize="large" />,
         title: 'fluid-sim',
         description: '2D fluid simulation suite featuring Navier-Stokes (finite difference) and Lattice-Boltzmann (D2Q9) solvers with real-time visualization.',
+        tags: ['Python', 'NumPy', 'CFD', 'Lattice-Boltzmann'],
         imgSrc: '/img/fluid-sim.png',
         links: [
             { href: 'https://github.com/andrenepomuceno/fluid-sim', text: 'View Code', icon: <GitHubIcon fontSize="small" /> },

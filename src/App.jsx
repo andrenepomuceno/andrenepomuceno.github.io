@@ -1,5 +1,5 @@
-import React, { useState, lazy, Suspense } from 'react';
-import { ThemeProvider, CssBaseline, Container, Typography, Box, Avatar, Tabs, Tab, Fade } from '@mui/material';
+import React, { useState, lazy, Suspense, useRef } from 'react';
+import { ThemeProvider, CssBaseline, Container, Typography, Box, Avatar, Tabs, Tab, Fade, Chip } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 import PersonIcon from '@mui/icons-material/Person';
 import FolderIcon from '@mui/icons-material/Folder';
@@ -43,8 +43,10 @@ function a11yProps(index) {
 
 function App() {
     const [selectedTab, setSelectedTab] = useState(0);
+    const tabsRef = useRef(null);
     const handleTabChange = (event, newValue) => {
         setSelectedTab(newValue);
+        tabsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
     return (
@@ -54,7 +56,7 @@ function App() {
                 <AnimatedBackground />
             </Suspense>
 
-            <Container maxWidth="lg" sx={{ py: 6, position: 'relative', zIndex: 1 }}>
+            <Container id="main-content" maxWidth="lg" sx={{ py: 6, position: 'relative', zIndex: 1 }}>
 
                 <Box sx={{ textAlign: 'center', mb: 6, animation: 'fadeInUp 0.8s ease-out' }}>
 
@@ -65,11 +67,11 @@ function App() {
                         André Nepomuceno
                     </Typography>
                     <Typography variant="h6" component="p" sx={{ color: 'text.secondary', mb: 2, maxWidth: '600px', margin: '0 auto' }}>
-                        Welcome to my page! Explore my projects, resume, and other information.
+                        Software & Hardware Engineer
                     </Typography>
                 </Box>
 
-                <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 4, animation: 'fadeInUp 0.8s ease-out 0.2s both' }}>
+                <Box ref={tabsRef} sx={{ borderBottom: 1, borderColor: 'divider', mb: 4, animation: 'fadeInUp 0.8s ease-out 0.2s both' }}>
                     <Tabs
                         value={selectedTab}
                         onChange={handleTabChange}
@@ -105,8 +107,7 @@ function App() {
                 </TabPanel>
 
                 <Typography variant="body2" component="p" sx={{ textAlign: 'center', mt: 10, color: 'text.secondary', opacity: 0.8 }}>
-
-                    Thanks for visiting! Come back anytime.
+                    © 2026 André Nepomuceno. All rights reserved.
                     <Box component="span" sx={{ display: 'block', fontSize: '0.85em', mt: 1 }}>
                         v{import.meta.env.PROD ? import.meta.env.VITE_APP_VERSION : '0.0.0' }
                     </Box>

@@ -80,30 +80,17 @@ export const elegantDarkTheme = createTheme({
                     gap: '6px',
                     textDecoration: 'none',
                     fontWeight: 500,
-                    color: theme.palette.primary.light,
+                    color: '#bbdefb',
                     transition: 'color 0.2s ease, background-color 0.2s ease',
                     padding: '4px 8px',
                     borderRadius: '4px',
                     '&:hover': {
-                        color: theme.palette.primary.main,
+                        color: '#e3f2fd',
                         backgroundColor: alpha(theme.palette.primary.light, 0.1),
                         textDecoration: 'none',
                     }
                 })
             }
         },
-        MuiContainer: {
-            styleOverrides: {
-                root: {}
-            }
-        },
-        MuiGrid: {
-            styleOverrides: {
-                item: {
-                    paddingTop: '0 !important',
-                    paddingBottom: '0 !important',
-                }
-            }
-        }
     }
 });
