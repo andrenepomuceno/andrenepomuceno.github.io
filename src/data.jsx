@@ -8,6 +8,7 @@ import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import LaunchIcon from '@mui/icons-material/Launch';
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import WaterDropIcon from '@mui/icons-material/WaterDrop';
+import ForestIcon from '@mui/icons-material/Forest';
 
 export const portfolioItems = [
     {
@@ -18,7 +19,7 @@ export const portfolioItems = [
         tags: ['JavaScript', 'Three.js', 'WebGL', 'Physics'],
         imgSrc: '/img/particlejs.png',
         links: [
-            { href: 'https://andrenepomuceno.github.io/particle.js/', text: 'Online Demo', icon: <LaunchIcon fontSize="small" /> },
+            { href: 'https://www.andrenepomuceno.com.br/particle.js/', text: 'Online Demo', icon: <LaunchIcon fontSize="small" /> },
             { href: 'https://github.com/andrenepomuceno/particle.js', text: 'View Code', icon: <GitHubIcon fontSize="small" /> },
             { href: 'https://www.youtube.com/watch?v=z5RhBaDnkOE&list=PLr48cTU7J6cyvKp1v-1bpH4j5qCZbR-AV', text: 'Video', icon: <YouTubeIcon fontSize="small" /> },
             { href: 'https://photos.app.goo.gl/1x41ZhipNKr5yrYa7', text: 'Gallery', icon: <PhotoLibraryIcon fontSize="small" /> },
@@ -66,6 +67,18 @@ export const portfolioItems = [
         imgSrc: '/img/fluid-sim.png',
         links: [
             { href: 'https://github.com/andrenepomuceno/fluid-sim', text: 'View Code', icon: <GitHubIcon fontSize="small" /> },
+        ],
+    },
+    {
+        category: 'Personal Project',
+        icon: <ForestIcon fontSize="large" />,
+        title: 'BiomeSimulator',
+        description: 'Browser-based 2D ecosystem simulation: a procedurally generated world with biomes, rivers, and seasonal climate, populated by autonomous plants and animals that self-regulate through life cycles, predation, and competition.',
+        tags: ['JavaScript', 'React', 'PixiJS', 'Simulation'],
+        imgSrc: '/img/biome-simulator.png',
+        links: [
+            { href: 'https://www.andrenepomuceno.com.br/BiomeSimulator/', text: 'Online Demo', icon: <LaunchIcon fontSize="small" /> },
+            { href: 'https://github.com/andrenepomuceno/BiomeSimulator', text: 'View Code', icon: <GitHubIcon fontSize="small" /> },
         ],
     }
 ];

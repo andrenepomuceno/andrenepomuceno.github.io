@@ -2,7 +2,7 @@
 
 Este é o repositório do código-fonte do meu site de portfólio pessoal.
 
-O site está disponível em: [https://andrenepomuceno.github.io/](https://andrenepomuceno.github.io/)
+O site está disponível em: [https://www.andrenepomuceno.com.br/](https://www.andrenepomuceno.com.br/)
 
 ## 🚀 Tecnologias Utilizadas
 
