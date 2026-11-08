@@ -65,7 +65,6 @@ const updatedFragmentShader = `
 
 function AnimatedBackground() {
     const mountRef = useRef(null);
-    const clockRef = useRef(new THREE.Clock());
 
     useEffect(() => {
         let reqId;
@@ -148,9 +147,14 @@ function AnimatedBackground() {
         };
         window.addEventListener('mousemove', handleMouseMove);
 
-        const animate = () => {
+        // Timer.connect(document) skips the time spent in a hidden tab, so the animation resumes where it stopped.
+        const timer = new THREE.Timer();
+        timer.connect(document);
+
+        const animate = (timestamp) => {
             reqId = requestAnimationFrame(animate);
-            const elapsedTime = clockRef.current.getElapsedTime();
+            timer.update(timestamp);
+            const elapsedTime = timer.getElapsed();
 
             particlesMaterial.uniforms.uTime.value = elapsedTime;
 
@@ -163,15 +167,12 @@ function AnimatedBackground() {
 
             renderer.render(scene, camera);
         };
-        clockRef.current = new THREE.Clock();
         animate();
 
         const handleVisibilityChange = () => {
             if (document.hidden) {
                 cancelAnimationFrame(reqId);
-                clockRef.current.stop();
             } else {
-                clockRef.current.start();
                 animate();
             }
         };
@@ -192,6 +193,7 @@ function AnimatedBackground() {
 
         return () => {
             cancelAnimationFrame(reqId);
+            timer.dispose();
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('visibilitychange', handleVisibilityChange);
