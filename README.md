@@ -6,16 +6,20 @@ O site está disponível em: [https://www.andrenepomuceno.com.br/](https://www.a
 
 ## 🚀 Tecnologias Utilizadas
 
-* **Framework:** React
-* **Build Tool:** Vite
-* **UI Library:** Material UI (MUI)
+* **Framework:** React 19
+* **Build Tool:** Vite 8
+* **UI Library:** Material UI (MUI) 9
+* **Fundo animado:** three.js
+* **Idiomas:** inglês e português do Brasil (i18n próprio em `src/i18n/`; `?lang=en` ou `?lang=pt-BR`)
 * **Linguagem:** JavaScript (JSX)
 
 ## 🛠️ Rodando Localmente
 
+Requer Node.js 22 (o Vite 8 pede Node 20.19 ou mais recente).
+
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/andrenepomuceno/andrenepomuceno.github.io.git](https://www.google.com/search?q=https://github.com/andrenepomuceno/andrenepomuceno.github.io.git)
+    git clone https://github.com/andrenepomuceno/andrenepomuceno.github.io.git
     cd andrenepomuceno.github.io
     ```
 
@@ -42,3 +46,4 @@ Para gerar os arquivos otimizados para deploy:
 npm run build
 # ou
 # yarn build
+```
