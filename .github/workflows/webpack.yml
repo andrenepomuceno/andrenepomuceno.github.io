@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: Build and deploy
 
 on:
   push:
@@ -8,38 +8,38 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20.x]
-
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v7
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: Use Node.js 22
+      uses: actions/setup-node@v7
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 22.x
+        cache: npm
 
     - name: Extract version
-      id: package_version
       run: echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
 
     - name: Build
       run: |
-        npm install
+        npm ci
         npm run build
       env:
         VITE_GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
         VITE_APP_VERSION: ${{ env.VERSION }}
 
+    # An existing tag means package.json was not bumped: warn and still deploy (it used to fail here and skip the deploy).
     - name: Create and push tag
       run: |
-        git tag v${{ env.VERSION }}
-        git push origin v${{ env.VERSION }}
-        
+        if git ls-remote --exit-code --tags origin "refs/tags/v${VERSION}" > /dev/null; then
+          echo "::warning::Tag v${VERSION} already exists; bump the version in package.json to tag this release."
+        else
+          git tag "v${VERSION}"
+          git push origin "v${VERSION}"
+        fi
+
     - name: Deploy gh-pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: dist
         branch: gh-pages
-
