@@ -3,8 +3,12 @@ import { Box, Typography, Paper, Link } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import BusinessIcon from '@mui/icons-material/Business';
+import { useI18n } from '../i18n/context';
 
 function AboutMe() {
+    const { t } = useI18n();
     const profileLinks = [
         {
             href: 'https://github.com/andrenepomuceno',
@@ -15,6 +19,16 @@ function AboutMe() {
             href: 'https://linkedin.com/in/andresiega',
             text: 'LinkedIn',
             icon: <LinkedInIcon fontSize="small" />
+        },
+        {
+            href: 'https://www.youtube.com/@alsn0',
+            text: 'YouTube',
+            icon: <YouTubeIcon fontSize="small" />
+        },
+        {
+            href: 'https://www.alsnengenharia.com.br/',
+            text: 'ALSN Engenharia',
+            icon: <BusinessIcon fontSize="small" />
         }
     ];
 
@@ -24,24 +38,16 @@ function AboutMe() {
             <Paper elevation={3} sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
                     <PersonIcon color="primary" fontSize="large" />
-                    {/* Changed title to English */}
                     <Typography variant="h3" component="h2">
-                        About Me
+                        {t('about.title')}
                     </Typography>
                 </Box>
-                {/* Using Typography with paragraph=true can help with spacing */}
-                <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7, mb: 3 }} paragraph>
-                    {/* Split the text logically for better readability in the code */}
-                    For the last 10+ years, I've been diving deep into the world of software and hardware engineering. It's been a fun ride, taking me through challenging projects involving both code and hardware in diverse areas like fintech, medical devices, defense systems, and renewable energy tech.
-                </Typography>
-                <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7, mb: 3 }} paragraph>
-                    I get a kick out of designing systems built to handle serious scale, optimizing performance, and helping engineering teams thrive. You'll often find me working with embedded systems, cloud infrastructure, or puzzling out hardware and software designs.
-                </Typography>
-                <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7, mb: 3 }} paragraph>
-                    Ultimately, I love solving tricky problems and building robust, efficient solutions that make a difference.
-                </Typography>
+                {['about.p1', 'about.p2', 'about.p3'].map((key) => (
+                    <Typography key={key} variant="body1" component="p" color="text.secondary" sx={{ lineHeight: 1.7, mb: 3 }}>
+                        {t(key)}
+                    </Typography>
+                ))}
 
-                {/* Links Section */}
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mt: 3 }}>
                     {profileLinks.map((link, index) => (
                         <Link
@@ -57,7 +63,6 @@ function AboutMe() {
                         </Link>
                     ))}
                 </Box>
-                {/* End Links Section */}
 
             </Paper>
         </Box>

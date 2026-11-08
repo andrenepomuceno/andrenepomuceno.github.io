@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
+import I18nProvider from './i18n/I18nProvider.jsx';
 
 if (import.meta.env.PROD && import.meta.env.VITE_GA_MEASUREMENT_ID) {
     const gaMeasurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
@@ -12,7 +13,7 @@ if (import.meta.env.PROD && import.meta.env.VITE_GA_MEASUREMENT_ID) {
         document.head.appendChild(script);
 
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag() { window.dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', gaMeasurementId);
     }
@@ -30,6 +31,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
     <React.StrictMode>
-        <App />
+        <I18nProvider>
+            <App />
+        </I18nProvider>
     </React.StrictMode>,
 );

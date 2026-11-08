@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Paper, Link, Box, Typography, Chip } from '@mui/material';
+import ArchiveIcon from '@mui/icons-material/Archive';
+import { useI18n } from '../i18n/context';
 
-function PortfolioItem({ item, index }) {
+function PortfolioItem({ item }) {
+    const { t, l } = useI18n();
     const [imgFailed, setImgFailed] = useState(false);
     const hasImage = item.imgSrc && !imgFailed;
 
@@ -27,7 +30,7 @@ function PortfolioItem({ item, index }) {
                 <Box
                     component="img"
                     src={item.imgSrc}
-                    alt={`Image of ${item.title}`}
+                    alt={t('item.imageAlt', { title: item.title })}
                     sx={{
                         width: { xs: '100%', md: 'auto' },
                         height: 'auto',
@@ -54,10 +57,10 @@ function PortfolioItem({ item, index }) {
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
                         {item.icon}
                         <Typography variant="overline" color="primary">
-                            {item.category}
+                            {l(item.category)}
                         </Typography>
                     </Box>
-                    <Typography variant="h4" component="h2" gutterBottom>
+                    <Typography variant="h4" component="h2" gutterBottom sx={{ fontSize: { xs: '1.6rem', sm: '2.125rem' }, overflowWrap: 'break-word' }}>
                         {item.title}
                     </Typography>
                     <Typography
@@ -69,14 +72,24 @@ function PortfolioItem({ item, index }) {
                             overflowWrap: 'break-word',
                         }}
                     >
-                        {item.description}
+                        {l(item.description)}
                     </Typography>
-                    {item.tags && item.tags.length > 0 && (
+                    {(item.archived || item.tags?.length > 0) && (
                         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mb: 3 }}>
-                            {item.tags.map((tag) => (
+                            {item.archived && (
                                 <Chip
-                                    key={tag}
-                                    label={tag}
+                                    icon={<ArchiveIcon />}
+                                    label={t('item.archived')}
+                                    size="small"
+                                    color="warning"
+                                    variant="outlined"
+                                    sx={{ fontSize: '0.75rem' }}
+                                />
+                            )}
+                            {(item.tags ?? []).map((tag) => (
+                                <Chip
+                                    key={l(tag)}
+                                    label={l(tag)}
                                     size="small"
                                     variant="outlined"
                                     sx={{ borderColor: 'divider', color: 'text.secondary', fontSize: '0.75rem' }}
@@ -92,10 +105,10 @@ function PortfolioItem({ item, index }) {
                                 rel="noopener noreferrer"
                                 key={linkIndex}
                                 underline="none"
-                                aria-label={`${link.text} for ${item.title}`}
+                                aria-label={t('item.linkAriaLabel', { link: l(link.text), title: item.title })}
                             >
                                 {link.icon}
-                                {link.text}
+                                {l(link.text)}
                             </Link>
                         ))}
                     </Box>

@@ -1,10 +1,12 @@
 import React, { useState, lazy, Suspense, useRef } from 'react';
-import { ThemeProvider, CssBaseline, Container, Typography, Box, Avatar, Tabs, Tab, Fade, Chip } from '@mui/material';
+import { ThemeProvider, CssBaseline, Container, Typography, Box, Avatar, Tabs, Tab, Fade, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 import PersonIcon from '@mui/icons-material/Person';
 import FolderIcon from '@mui/icons-material/Folder';
+import ArticleIcon from '@mui/icons-material/Article';
 import { elegantDarkTheme } from './theme';
-import { portfolioItems } from './data';
+import { portfolioItems, articles } from './data';
+import { useI18n } from './i18n/context';
 import PortfolioItem from './components/PortfolioItem';
 import AboutMe from './components/AboutMe';
 
@@ -42,6 +44,7 @@ function a11yProps(index) {
 
 
 function App() {
+    const { t, lang, setLang } = useI18n();
     const [selectedTab, setSelectedTab] = useState(0);
     const tabsRef = useRef(null);
     const handleTabChange = (event, newValue) => {
@@ -58,6 +61,19 @@ function App() {
 
             <Container id="main-content" maxWidth="lg" sx={{ py: 6, position: 'relative', zIndex: 1 }}>
 
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: { xs: 2, md: 0 } }}>
+                    <ToggleButtonGroup
+                        value={lang}
+                        exclusive
+                        size="small"
+                        onChange={(event, next) => { if (next) setLang(next); }}
+                        aria-label={t('language.ariaLabel')}
+                    >
+                        <ToggleButton value="en" lang="en" aria-label="English">EN</ToggleButton>
+                        <ToggleButton value="pt-BR" lang="pt-BR" aria-label="Português (Brasil)">PT</ToggleButton>
+                    </ToggleButtonGroup>
+                </Box>
+
                 <Box sx={{ textAlign: 'center', mb: 6, animation: 'fadeInUp 0.8s ease-out' }}>
 
                     <Avatar sx={{ width: 80, height: 80, margin: '0 auto 16px', bgcolor: 'primary.main' }}>
@@ -67,7 +83,7 @@ function App() {
                         André Nepomuceno
                     </Typography>
                     <Typography variant="h6" component="p" sx={{ color: 'text.secondary', mb: 2, maxWidth: '600px', margin: '0 auto' }}>
-                        Software & Hardware Engineer
+                        {t('header.subtitle')}
                     </Typography>
                 </Box>
 
@@ -75,22 +91,35 @@ function App() {
                     <Tabs
                         value={selectedTab}
                         onChange={handleTabChange}
-                        aria-label="Portfolio Sections"
-                        centered
+                        aria-label={t('tabs.ariaLabel')}
+                        variant="scrollable"
+                        scrollButtons="auto"
+                        allowScrollButtonsMobile
                         indicatorColor="primary"
                         textColor="primary"
+                        sx={{
+                            // Auto margins center the tabs when they fit and collapse to zero when they scroll.
+                            '& .MuiTab-root:first-of-type': { ml: 'auto' },
+                            '& .MuiTab-root:last-of-type': { mr: 'auto' },
+                        }}
                     >
                         <Tab
                             icon={<PersonIcon />}
                             iconPosition="start"
-                            label="About Me"
+                            label={t('tabs.about')}
                             {...a11yProps(0)}
                         />
                         <Tab
                             icon={<FolderIcon />}
                             iconPosition="start"
-                            label="Hobby Projects"
+                            label={t('tabs.projects')}
                             {...a11yProps(1)}
+                        />
+                        <Tab
+                            icon={<ArticleIcon />}
+                            iconPosition="start"
+                            label={t('tabs.articles')}
+                            {...a11yProps(2)}
                         />
                     </Tabs>
                 </Box>
@@ -101,13 +130,20 @@ function App() {
                 <TabPanel value={selectedTab} index={1}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                         {portfolioItems.map((item, index) => (
-                            <PortfolioItem key={index} item={item} index={index} />
+                            <PortfolioItem key={index} item={item} />
+                        ))}
+                    </Box>
+                </TabPanel>
+                <TabPanel value={selectedTab} index={2}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                        {articles.map((item, index) => (
+                            <PortfolioItem key={index} item={item} />
                         ))}
                     </Box>
                 </TabPanel>
 
                 <Typography variant="body2" component="p" sx={{ textAlign: 'center', mt: 10, color: 'text.secondary', opacity: 0.8 }}>
-                    © 2026 André Nepomuceno. All rights reserved.
+                    {t('footer.rights')}
                     <Box component="span" sx={{ display: 'block', fontSize: '0.85em', mt: 1 }}>
                         v{import.meta.env.PROD ? import.meta.env.VITE_APP_VERSION : '0.0.0' }
                     </Box>
