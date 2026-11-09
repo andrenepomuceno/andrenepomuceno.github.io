@@ -43,6 +43,12 @@ function a11yProps(index) {
 }
 
 
+// Entries with `draft: true` wait for their demo to go live: shown in development and with ?drafts=1, hidden otherwise.
+function published(items) {
+    const showDrafts = import.meta.env.DEV || new URLSearchParams(window.location.search).has('drafts');
+    return showDrafts ? items : items.filter((item) => !item.draft);
+}
+
 function App() {
     const { t, lang, setLang } = useI18n();
     const [selectedTab, setSelectedTab] = useState(0);
@@ -129,14 +135,14 @@ function App() {
                 </TabPanel>
                 <TabPanel value={selectedTab} index={1}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                        {portfolioItems.map((item, index) => (
+                        {published(portfolioItems).map((item, index) => (
                             <PortfolioItem key={index} item={item} />
                         ))}
                     </Box>
                 </TabPanel>
                 <TabPanel value={selectedTab} index={2}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                        {articles.map((item, index) => (
+                        {published(articles).map((item, index) => (
                             <PortfolioItem key={index} item={item} />
                         ))}
                     </Box>

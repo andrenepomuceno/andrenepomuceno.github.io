@@ -14,7 +14,12 @@ Três abas em `src/App.jsx`:
 - **Hobby Projects / Projetos pessoais**: `portfolioItems` em `src/data.jsx`, um card por projeto
   (`src/components/PortfolioItem.jsx`). Ordem: projetos ativos primeiro (os de física na GPU em destaque),
   arquivados (`archived: true`, chip "Archived") no fim.
-- **Articles / Artigos**: `articles` em `src/data.jsx`, o mesmo card. O PDF fica em `public/papers/`.
+- **Articles / Artigos**: `articles` em `src/data.jsx`, o mesmo card: o artigo (PDF em `public/papers/`)
+  e as referências aos materiais de estudo (categoria "Study Material", link para a demo de cada um).
+
+Entrada com `draft: true` espera a demo entrar no ar: aparece no `npm run dev` e com `?drafts=1`, com o
+chip "Draft" / "Rascunho", e fica escondida no site publicado (`published()` em `src/App.jsx`). Quando a
+demo responder 200, tire o `draft` e publique.
 
 ## Projetos irmãos (fonte do conteúdo)
 
@@ -30,6 +35,8 @@ invente recursos.
 | ESP Garden | — | público | — |
 | wallet.py, em-sim, fluid-sim | — | públicos, arquivados no GitHub | — |
 | artigo (Conservation laws as Lie-algebra membership) | `../matrix-physics/paper/journal/main.pdf` | **privado** | `public/papers/conservation-laws-lie-algebra-membership.pdf` |
+| Standard Model: study material | `../sm-study` | **privado** | `/sm-study/` (ainda sem fluxo de publicação; entrada em `draft`) |
+| Classical physics and relativity: study material | `../classic-study` | **privado** | `/classic-study/` (`pages.yml` publica do `main`; entrada em `draft`) |
 
 Demos sob `https://www.andrenepomuceno.com.br/<repo>/` (o Pages de cada repositório herda o domínio).
 
@@ -45,8 +52,9 @@ Demos sob `https://www.andrenepomuceno.com.br/<repo>/` (o Pages de cada reposit�
   `localize()`. `src/i18n/I18nProvider.jsx` e `src/i18n/context.js` (`useI18n()` → `{ lang, setLang, t, l }`).
 - Idioma: `?lang=en|pt-BR` vale para a visita; depois a escolha salva (`localStorage['lang']`); depois o
   idioma do navegador (`pt*` → pt-BR); padrão `en`. O seletor EN/PT fica no topo, à direita.
-- Em `data.jsx`, todo texto é uma string (igual nos dois idiomas: nomes, tecnologias) ou um objeto
-  `{ en, 'pt-BR' }` lido com `l()`. Rótulos repetidos (`PERSONAL_PROJECT`, `LINK`, `TAG`) ficam no topo.
+- Em `data.jsx`, todo texto (inclusive `title`) é uma string (igual nos dois idiomas: nomes, tecnologias)
+  ou um objeto `{ en, 'pt-BR' }` lido com `l()`. Rótulos repetidos (`PERSONAL_PROJECT`, `STUDY_MATERIAL`,
+  `LINK`, `TAG`) ficam no topo.
 - Texto novo entra nos **dois idiomas** no mesmo commit. `translate()` falha alto com chave ausente.
 - O artigo é em inglês: o título fica em inglês e o link diz "Ler PDF (em inglês)".
 
@@ -61,6 +69,9 @@ Demos sob `https://www.andrenepomuceno.com.br/<repo>/` (o Pages de cada reposit�
   - Metric Shaders: demo publicada, cena *Black hole* com a métrica *Schwarzschild lens*, interface
     escondida com `H`, 1200×800.
   - artigo: `pdftoppm -f 1 -l 1 -r 110 -png` da primeira página, recorte do título e do resumo.
+  - sm-study e classic-study (2026-11-09): o `scripts/snap.mjs` de cada projeto, `--lang en --width 1200
+    --height 800 --wait 3000`, rotas `feynman/h-gammagamma` e `laboratorio/minkowski`; recorte
+    `(195, 70, 1185, 730)` (cena + coluna de equações) reduzido a 900×600.
 - Playwright: use o de `../lattice.js/node_modules/playwright` (o Chromium já está instalado). GPU real no
   WSL: `chromium.launch({ args: ['--use-angle=gl', '--ignore-gpu-blocklist'], env: { ...process.env,
   MESA_D3D12_DEFAULT_ADAPTER_NAME: 'NVIDIA' } })`. Use `waitUntil: 'domcontentloaded'`: com Google Fonts,

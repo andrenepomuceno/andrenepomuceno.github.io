@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Paper, Link, Box, Typography, Chip } from '@mui/material';
 import ArchiveIcon from '@mui/icons-material/Archive';
+import EditNoteIcon from '@mui/icons-material/EditNote';
 import { useI18n } from '../i18n/context';
 
 function PortfolioItem({ item }) {
     const { t, l } = useI18n();
     const [imgFailed, setImgFailed] = useState(false);
     const hasImage = item.imgSrc && !imgFailed;
+    const title = l(item.title);
 
     return (
         <Box
@@ -30,7 +32,7 @@ function PortfolioItem({ item }) {
                 <Box
                     component="img"
                     src={item.imgSrc}
-                    alt={t('item.imageAlt', { title: item.title })}
+                    alt={t('item.imageAlt', { title })}
                     sx={{
                         width: { xs: '100%', md: 'auto' },
                         height: 'auto',
@@ -61,7 +63,7 @@ function PortfolioItem({ item }) {
                         </Typography>
                     </Box>
                     <Typography variant="h4" component="h2" gutterBottom sx={{ fontSize: { xs: '1.6rem', sm: '2.125rem' }, overflowWrap: 'break-word' }}>
-                        {item.title}
+                        {title}
                     </Typography>
                     <Typography
                         variant="body2"
@@ -74,8 +76,18 @@ function PortfolioItem({ item }) {
                     >
                         {l(item.description)}
                     </Typography>
-                    {(item.archived || item.tags?.length > 0) && (
+                    {(item.draft || item.archived || item.tags?.length > 0) && (
                         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mb: 3 }}>
+                            {item.draft && (
+                                <Chip
+                                    icon={<EditNoteIcon />}
+                                    label={t('item.draft')}
+                                    size="small"
+                                    color="info"
+                                    variant="outlined"
+                                    sx={{ fontSize: '0.75rem' }}
+                                />
+                            )}
                             {item.archived && (
                                 <Chip
                                     icon={<ArchiveIcon />}
@@ -105,7 +117,7 @@ function PortfolioItem({ item }) {
                                 rel="noopener noreferrer"
                                 key={linkIndex}
                                 underline="none"
-                                aria-label={t('item.linkAriaLabel', { link: l(link.text), title: item.title })}
+                                aria-label={t('item.linkAriaLabel', { link: l(link.text), title })}
                             >
                                 {link.icon}
                                 {l(link.text)}

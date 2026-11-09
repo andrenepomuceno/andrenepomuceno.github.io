@@ -13,9 +13,12 @@ import GridOnIcon from '@mui/icons-material/GridOn';
 import BlurCircularIcon from '@mui/icons-material/BlurCircular';
 import ArticleIcon from '@mui/icons-material/Article';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import HubIcon from '@mui/icons-material/Hub';
+import PublicIcon from '@mui/icons-material/Public';
 
 // Text fields are plain strings (same in every language) or { en, 'pt-BR' } objects, read with localize().
 const PERSONAL_PROJECT = { en: 'Personal Project', 'pt-BR': 'Projeto pessoal' };
+const STUDY_MATERIAL = { en: 'Study Material', 'pt-BR': 'Material de estudo' };
 const LINK = {
     demo: { en: 'Online Demo', 'pt-BR': 'Demo online' },
     code: { en: 'View Code', 'pt-BR': 'Ver código' },
@@ -35,6 +38,9 @@ const TAG = {
     lieAlgebras: { en: 'Lie Algebras', 'pt-BR': 'Álgebras de Lie' },
     conservationLaws: { en: 'Conservation Laws', 'pt-BR': 'Leis de conservação' },
     numericalMethods: { en: 'Numerical Methods', 'pt-BR': 'Métodos numéricos' },
+    standardModel: { en: 'Standard Model', 'pt-BR': 'Modelo Padrão' },
+    qft: { en: 'Quantum Field Theory', 'pt-BR': 'Teoria quântica de campos' },
+    relativity: { en: 'Relativity', 'pt-BR': 'Relatividade' },
 };
 
 export const portfolioItems = [
@@ -172,6 +178,36 @@ export const articles = [
         imgSrc: '/img/article-conservation-laws.webp',
         links: [
             { href: '/papers/conservation-laws-lie-algebra-membership.pdf', text: LINK.pdf, icon: <PictureAsPdfIcon fontSize="small" /> },
+        ],
+    },
+    {
+        category: STUDY_MATERIAL,
+        icon: <HubIcon fontSize="large" />,
+        title: { en: 'Standard Model: study material', 'pt-BR': 'Modelo Padrão: material de estudo' },
+        description: {
+            en: 'An interactive page for studying the Standard Model, quantum physics and quantum field theory, in the browser. A cheatsheet opens with the Standard Model Lagrangian, each line leading to its explanation; the fundamental particles are laid out in 3D; the decay modes of the PDG 2026 can be filtered and searched, with sourced theoretical predictions next to their experimental limits; and Feynman diagrams drawn in 3D light up the matching term of the amplitude, with sliders for energy and angle.\n\nEvery number on the page has a traceable source (a PDG measurement, a paper or a tested calculation), shown next to the measured value and the deviation.',
+            'pt-BR': 'Uma página interativa para estudar o Modelo Padrão, física quântica e teoria quântica de campos, no navegador. A cheatsheet abre com a lagrangiana do Modelo Padrão, cada linha levando à sua explicação; as partículas fundamentais aparecem em 3D; os modos de decaimento do PDG 2026 têm filtros e busca, com previsões teóricas, cada uma com fonte, ao lado do limite experimental; e diagramas de Feynman desenhados em 3D acendem o termo correspondente da amplitude, com controles de energia e ângulo.\n\nTodo número da página tem origem rastreável (uma medida do PDG, um artigo ou um cálculo testado), mostrado ao lado do valor medido e do desvio.',
+        },
+        tags: ['TypeScript', 'React', 'Three.js', TAG.standardModel, TAG.qft],
+        imgSrc: '/img/sm-study.webp',
+        draft: true,
+        links: [
+            { href: 'https://www.andrenepomuceno.com.br/sm-study/', text: LINK.demo, icon: <LaunchIcon fontSize="small" /> },
+        ],
+    },
+    {
+        category: STUDY_MATERIAL,
+        icon: <PublicIcon fontSize="large" />,
+        title: { en: 'Classical physics and relativity: study material', 'pt-BR': 'Física clássica e relatividade: material de estudo' },
+        description: {
+            en: 'The companion of the Standard Model page, for mechanics, electromagnetism, waves, optics, thermodynamics, transport phenomena and special and general relativity. A cheatsheet starts from the actions of the theories, from the Newtonian particle to Einstein–Hilbert; the Sun, planets and compact objects come with JPL and CODATA values; the tests of relativity sit next to their measurements, with the GWOSC catalog of gravitational-wave events; and a laboratory of 3D scenes, from the double pendulum to Schwarzschild geodesics and frame dragging in Kerr, links each element of the scene to its term in the equations.\n\nThe same rule applies: every number has a traceable source, and an approximation is shown as one, next to the measured value and the deviation.',
+            'pt-BR': 'A companheira da página do Modelo Padrão, para mecânica, eletromagnetismo, ondas, ótica, termodinâmica, fenômenos de transporte e as relatividades restrita e geral. A cheatsheet parte das ações das teorias, da partícula newtoniana a Einstein–Hilbert; o Sol, os planetas e objetos compactos vêm com valores do JPL e da CODATA; os testes da relatividade ficam ao lado das medidas, com o catálogo de ondas gravitacionais do GWOSC; e um laboratório de cenas em 3D, do pêndulo duplo às geodésicas de Schwarzschild e ao arrasto de referencial em Kerr, liga cada elemento da cena ao seu termo nas equações.\n\nA regra é a mesma: todo número tem origem rastreável, e uma aproximação aparece como tal, ao lado do valor medido e do desvio.',
+        },
+        tags: ['TypeScript', 'React', 'Three.js', 'Chart.js', TAG.classicalMechanics, TAG.relativity],
+        imgSrc: '/img/classic-study.webp',
+        draft: true,
+        links: [
+            { href: 'https://www.andrenepomuceno.com.br/classic-study/', text: LINK.demo, icon: <LaunchIcon fontSize="small" /> },
         ],
     },
 ];
