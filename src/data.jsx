@@ -190,7 +190,6 @@ export const articles = [
         },
         tags: ['TypeScript', 'React', 'Three.js', TAG.standardModel, TAG.qft],
         imgSrc: '/img/sm-study.webp',
-        draft: true,
         links: [
             { href: 'https://www.andrenepomuceno.com.br/sm-study/', text: LINK.demo, icon: <LaunchIcon fontSize="small" /> },
         ],
@@ -205,7 +204,6 @@ export const articles = [
         },
         tags: ['TypeScript', 'React', 'Three.js', 'Chart.js', TAG.classicalMechanics, TAG.relativity],
         imgSrc: '/img/classic-study.webp',
-        draft: true,
         links: [
             { href: 'https://www.andrenepomuceno.com.br/classic-study/', text: LINK.demo, icon: <LaunchIcon fontSize="small" /> },
         ],

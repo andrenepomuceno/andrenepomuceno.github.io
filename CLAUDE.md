@@ -35,8 +35,8 @@ invente recursos.
 | ESP Garden | — | público | — |
 | wallet.py, em-sim, fluid-sim | — | públicos, arquivados no GitHub | — |
 | artigo (Conservation laws as Lie-algebra membership) | `../matrix-physics/paper/journal/main.pdf` | **privado** | `public/papers/conservation-laws-lie-algebra-membership.pdf` |
-| Standard Model: study material | `../sm-study` | **privado** | `/sm-study/` (ainda sem fluxo de publicação; entrada em `draft`) |
-| Classical physics and relativity: study material | `../classic-study` | **privado** | `/classic-study/` (`pages.yml` publica do `main`; entrada em `draft`) |
+| Standard Model: study material | `../sm-study` | **privado** | `/sm-study/` (`npm run deploy` grava o branch `gh-pages`) |
+| Classical physics and relativity: study material | `../classic-study` | **privado** | `/classic-study/` (`pages.yml` publica do `main`) |
 
 Demos sob `https://www.andrenepomuceno.com.br/<repo>/` (o Pages de cada repositório herda o domínio).
 
